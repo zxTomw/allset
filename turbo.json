@@ -22,5 +22,6 @@
     "clean": {
       "cache": false
     }
-  }
+  },
+  "ui": "tui"
 }
