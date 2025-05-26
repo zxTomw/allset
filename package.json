@@ -1,0 +1,22 @@
+{
+  "name": "caiqile",
+  "description": "nice app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "turbo": "^2.5.3"
+  },
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test"
+  },
+  "packageManager": "yarn@1.22.22"
+}
