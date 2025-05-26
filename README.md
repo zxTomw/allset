@@ -20,9 +20,9 @@ A Turborepo-based monorepo containing:
 
 ## Installation
 
+First, clone the repository. Then install dependencies:
+
 ```bash
-# Clone the repository
-git clone <your-repo-url> caiqile
 cd caiqile
 
 # Install dependencies
