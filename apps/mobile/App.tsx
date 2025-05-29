@@ -42,20 +42,29 @@ function ProfileScreen() {
 
 const RootTab = createBottomTabNavigator({
   initialRouteName: "Home",
+  screenOptions: {
+    tabBarLabelPosition: "beside-icon",
+    tabBarIconStyle: {
+      display: "none",
+    },
+    tabBarLabelStyle: {
+      fontSize: 16,
+    },
+    headerTitleAlign: "left",
+  },
   screens: {
     Home: {
       screen: HomeScreen,
       options: {
         title: "首页",
-        headerTitleAlign: "left",
         headerTitle: "想做的菜\，一键买齐",
+        headerShadowVisible: false,
       },
     },
     Favorites: {
       screen: FavoritesScreen,
       options: {
         title: "收藏",
-        headerTitleAlign: "left",
         headerTitle: "收藏",
       },
     },
@@ -63,7 +72,6 @@ const RootTab = createBottomTabNavigator({
       screen: FridgeScreen,
       options: {
         title: "冰箱",
-        headerTitleAlign: "left",
         headerTitle: "冰箱",
       },
     },
@@ -71,7 +79,6 @@ const RootTab = createBottomTabNavigator({
       screen: ProfileScreen,
       options: {
         title: "我的",
-        headerTitleAlign: "left",
         headerTitle: "我的",
       },
     },
