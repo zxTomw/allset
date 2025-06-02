@@ -5,10 +5,12 @@ import OpenAI from "openai";
 
 const client = new OpenAI({
   apiKey: process.env.EXPO_PUBLIC_OPENAI_API_KEY,
+  dangerouslyAllowBrowser: true, // This is needed for Expo web
 });
 
 export function ChatView() {
   const [messages, setMessages] = useState<IMessage[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
     setMessages([
       {
@@ -28,12 +30,14 @@ export function ChatView() {
     setMessages((previousMessages) =>
       GiftedChat.append(previousMessages, messages)
     );
+    setIsLoading(true);
     client.responses
       .create({
         model: "gpt-4.1",
         input: messages[0].text,
       })
       .then((response) => {
+        setIsLoading(false);
         const aiMessage: IMessage = {
           _id: Math.random().toString(36).substring(7),
           text: response.output_text,
@@ -60,7 +64,7 @@ export function ChatView() {
         user={{
           _id: 1,
         }}
-        renderFooter={() => null}
+        renderFooter={() => isLoading && <Text>正在思考中...</Text>}
       />
     </View>
   );
