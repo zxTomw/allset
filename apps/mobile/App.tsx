@@ -3,21 +3,13 @@ import { StyleSheet, Text, View } from "react-native";
 import { createStaticNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { HomeScreen } from "./HomeScreen";
+import { HomeScreen, HomeStack } from "./HomeScreen";
+import { FridgeStack } from "./FridgeScreen";
 
 function FavoritesScreen() {
   return (
     <View style={styles.container}>
       <Text>Favorites Screen</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
-
-function FridgeScreen() {
-  return (
-    <View style={styles.container}>
-      <Text>Fridge Screen</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -46,25 +38,27 @@ const RootTab = createBottomTabNavigator({
   },
   screens: {
     Home: {
-      screen: HomeScreen,
+      screen: HomeStack,
       options: {
         title: "首页",
         headerTitle: "想做的菜\，一键买齐",
         headerShadowVisible: false,
+        headerShown: false,
       },
     },
     Favorites: {
       screen: FavoritesScreen,
       options: {
-        title: "收藏",
-        headerTitle: "收藏",
+        title: "菜谱",
+        headerTitle: "菜谱",
       },
     },
     Fridge: {
-      screen: FridgeScreen,
+      screen: FridgeStack,
       options: {
         title: "冰箱",
         headerTitle: "冰箱",
+        headerShown: false,
       },
     },
     Profile: {
