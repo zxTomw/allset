@@ -14,6 +14,7 @@ export const HomeStack = createNativeStackNavigator({
         headerLargeTitleStyle: {
           fontSize: 24,
         },
+        headerBlurEffect: "light",
       },
     },
   },

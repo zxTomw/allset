@@ -3,8 +3,8 @@ import { StyleSheet, Text, View } from "react-native";
 import { createStaticNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { HomeScreen, HomeStack } from "./HomeScreen";
-import { FridgeStack } from "./FridgeScreen";
+import { HomeScreen, HomeStack } from "./Home";
+import { FridgeStack } from "./Fridge";
 
 function FavoritesScreen() {
   return (
