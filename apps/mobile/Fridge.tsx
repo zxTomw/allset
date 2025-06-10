@@ -1,6 +1,5 @@
 import { createStaticNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StatusBar } from "expo-status-bar";
 import { View, Pressable, Text, StyleSheet } from "react-native";
 import { Button } from "./components/button";
 
@@ -19,7 +18,6 @@ function FridgeHomeScreen() {
         </Button>
         <Button fullWidth>添加食材</Button>
       </View>
-      <StatusBar style="auto" />
     </View>
   );
 }

@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { GiftedChat, IMessage } from "react-native-gifted-chat";
 import OpenAI from "openai";
+import { CaiBubble } from "./bubble";
 
 const client = new OpenAI({
   apiKey: process.env.EXPO_PUBLIC_DEEPSEEK_API_KEY,
@@ -16,17 +17,26 @@ export function ChatView() {
     setMessages([
       {
         _id: 1,
-        text: "嗨！欢迎来到 菜齐了 ，我是你的厨房搭子“小齐”！",
+        text: "今天想吃点啥\？我来帮你配菜谱、查冰箱、顺便一键买齐食材～",
         createdAt: new Date(),
         user: {
           _id: 2,
           name: "system",
           avatar: "https://picsum.photos/140/140",
         },
+        quickReplies: {
+          type: "radio", // or 'checkbox'
+
+          values: [
+            { title: "👉 不知道吃什么，帮我推荐！", value: "recommand" },
+            { title: "🧊 我冰箱里还有些食材...", value: "fridge" },
+            { title: "🛒 照着菜谱去买菜", value: "buy" },
+          ],
+        },
       },
       {
         _id: 2,
-        text: "今天想吃点啥\？我来帮你配菜谱、查冰箱、顺便一键买齐食材～",
+        text: "嗨！欢迎来到 菜齐了 ，我是你的厨房搭子“小齐”！",
         createdAt: new Date(),
         user: {
           _id: 2,
@@ -97,15 +107,31 @@ export function ChatView() {
   return (
     <View style={{ flex: 1 }}>
       <GiftedChat
+        renderBubble={(props) => <CaiBubble {...props} />}
+        renderAvatar={null}
         messages={messages}
         disableComposer={isLoading}
         onSend={onSend}
+        onQuickReply={(replies) =>
+          onSend(
+            replies.map((reply) => ({
+              _id: Math.random().toString(36).substring(7),
+              text: reply.title,
+              createdAt: new Date(),
+              user: {
+                _id: 1,
+                name: "user",
+              },
+            }))
+          )
+        }
         textInputProps={{ styles: styles.input }}
         messagesContainerStyle={{ backgroundColor: "#fff" }}
         user={{
           _id: 1,
+          name: "user",
         }}
-        renderFooter={() => isLoading && <Text>正在思考中...</Text>}
+        isTyping={isLoading}
       />
     </View>
   );

@@ -34,16 +34,19 @@ const RootTab = createBottomTabNavigator({
     tabBarLabelStyle: {
       fontSize: 16,
     },
-    headerTitleAlign: "left",
   },
   screens: {
     Home: {
-      screen: HomeStack,
+      screen: HomeScreen,
       options: {
         title: "首页",
         headerTitle: "想做的菜\，一键买齐",
         headerShadowVisible: false,
-        headerShown: false,
+        headerTitleAlign: "left",
+        headerTitleStyle: {
+          fontSize: 24,
+          color: "#454545",
+        },
       },
     },
     Favorites: {
