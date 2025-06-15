@@ -126,7 +126,10 @@ export function ChatView() {
           )
         }
         textInputProps={{ styles: styles.input }}
-        messagesContainerStyle={{ backgroundColor: "#fff" }}
+        messagesContainerStyle={{
+          backgroundColor: "#fff",
+          paddingHorizontal: 10,
+        }}
         user={{
           _id: 1,
           name: "user",

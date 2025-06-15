@@ -1,7 +1,7 @@
 import { createStaticNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, Pressable, Text, StyleSheet } from "react-native";
-import { Button } from "./components/button";
+import { CaiButton } from "./components/button";
 
 function FridgeHomeScreen() {
   return (
@@ -13,10 +13,10 @@ function FridgeHomeScreen() {
         }}
       ></View>
       <View style={{ width: "100%", gap: 10 }}>
-        <Button variant="secondary" fullWidth>
+        <CaiButton variant="secondary" fullWidth>
           制作菜谱
-        </Button>
-        <Button fullWidth>添加食材</Button>
+        </CaiButton>
+        <CaiButton fullWidth>添加食材</CaiButton>
       </View>
     </View>
   );

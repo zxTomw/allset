@@ -58,28 +58,12 @@ export function RecipePreferenceForm() {
     >
       <View>
         <Text>👅 口味偏好</Text>
-        <View
-          style={{
-            flexDirection: "row",
-            rowGap: 10,
-            columnGap: 30,
-            flexWrap: "wrap",
-            marginVertical: 10,
-          }}
-        >
-          {rp.tastePreferences.map((preference) => (
-            <Pressable
-              key={preference}
-              style={{
-                backgroundColor: "white",
-                borderRadius: 10,
-                padding: 10,
-              }}
-            >
-              <Text style={{ color: "#000" }}>{preference}</Text>
-            </Pressable>
-          ))}
-        </View>
+        <Selections
+          selections={rp.tastePreferences}
+          selectedValues={tastePreference}
+          onSelectedValuesChange={setTastePreference}
+          multiple={false}
+        />
       </View>
       <View>
         <Text>🧑‍🍳 菜谱风格</Text>
@@ -89,6 +73,22 @@ export function RecipePreferenceForm() {
           onSelectedValuesChange={setRecipeStyles}
           multiple={false}
         />
+      </View>
+      <View
+        style={{
+          alignItems: "flex-end",
+        }}
+      >
+        <Pressable
+          style={{
+            width: "auto",
+            backgroundColor: "#F6E49B",
+            borderRadius: 23.5,
+            padding: 12,
+          }}
+        >
+          <Text>我选好啦</Text>
+        </Pressable>
       </View>
     </View>
   );

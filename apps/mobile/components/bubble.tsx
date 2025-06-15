@@ -1,3 +1,4 @@
+import { StyleSheet } from "react-native";
 import { Bubble, BubbleProps, IMessage } from "react-native-gifted-chat";
 
 export function CaiBubble({ ...props }: BubbleProps<IMessage>) {
@@ -5,14 +6,18 @@ export function CaiBubble({ ...props }: BubbleProps<IMessage>) {
     <Bubble
       {...props}
       wrapperStyle={{
-        left: {
-          backgroundColor: "#F3F8EE",
-          padding: 3,
-        },
-        right: {
-          backgroundColor: "#EBEBEB",
-          padding: 3,
-        },
+        left: [
+          styles.bubble,
+          {
+            backgroundColor: "#F3F8EE",
+          },
+        ],
+        right: [
+          styles.bubble,
+          {
+            backgroundColor: "#EBEBEB",
+          },
+        ],
       }}
       textStyle={{
         left: {
@@ -33,3 +38,9 @@ export function CaiBubble({ ...props }: BubbleProps<IMessage>) {
     />
   );
 }
+
+const styles = StyleSheet.create({
+  bubble: {
+    padding: 3,
+  },
+});

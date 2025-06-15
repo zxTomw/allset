@@ -1,26 +1,25 @@
-import { ReactNode } from "react";
 import {
   Pressable,
   StyleProp,
   ViewStyle,
   Text,
   StyleSheet,
+  type PressableProps,
 } from "react-native";
 
-export interface ButtonProps {
-  onPress?: () => void;
+export interface ButtonProps extends PressableProps {
   children?: string;
   fullWidth?: boolean;
   variant?: "primary" | "secondary";
   style?: StyleProp<ViewStyle>;
 }
 
-export function Button({
-  onPress,
+export function CaiButton({
   children,
   variant = "primary",
   fullWidth = false,
   style,
+  ...props
 }: ButtonProps) {
   const buttonStyle: StyleProp<ViewStyle> = [
     variant === "primary" ? styles.buttonPrimary : styles.buttonSecondary,
@@ -28,7 +27,7 @@ export function Button({
     style,
   ];
   return (
-    <Pressable style={buttonStyle} onPress={onPress}>
+    <Pressable style={buttonStyle} {...props}>
       <Text
         style={[
           styles.text,
