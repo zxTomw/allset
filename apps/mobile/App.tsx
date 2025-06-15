@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { HomeScreen, HomeStack } from "./Home";
 import { FridgeStack } from "./Fridge";
+import { PortionSizeForm, RecipePreferenceForm } from "./components/forms";
 
 function FavoritesScreen() {
   return (
@@ -70,6 +71,14 @@ const RootTab = createBottomTabNavigator({
         title: "我的",
         headerTitle: "我的",
       },
+    },
+    Test: {
+      screen: () => (
+        <View style={{ flex: 1, padding: 20, gap: 20 }}>
+          <PortionSizeForm />
+          <RecipePreferenceForm />
+        </View>
+      ),
     },
   },
 });
