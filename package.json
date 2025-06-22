@@ -18,5 +18,5 @@
     "lint": "turbo run lint",
     "test": "turbo run test"
   },
-  "packageManager": "bun@1.2.14"
+  "packageManager": "npm@11.4.2"
 }
