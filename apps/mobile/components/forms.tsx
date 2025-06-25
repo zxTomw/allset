@@ -1,19 +1,20 @@
-import { View, Text, Pressable } from "react-native";
-import { Bubble } from "react-native-gifted-chat";
-import { CaiBubble } from "./bubble";
+import { View, Text, Pressable, StyleSheet } from "react-native";
 import { useEffect, useState } from "react";
 import { Selections } from "./selections";
+
+export function StartForm() {
+  return <View style={styles.bubble}></View>;
+}
 
 export function PortionSizeForm() {
   return (
     <View
-      style={{
-        backgroundColor: "#F3F8EE",
-        flexDirection: "row",
-        borderRadius: 23.5,
-        padding: 20,
-        gap: 10,
-      }}
+      style={[
+        styles.bubble,
+        {
+          flexDirection: "row",
+        },
+      ]}
     >
       <View style={{ flex: 1 }}>
         <Text>👥 用餐人数</Text>
@@ -48,13 +49,12 @@ export function RecipePreferenceForm() {
   }, [recipeStyles]);
   return (
     <View
-      style={{
-        backgroundColor: "#F3F8EE",
-        flexDirection: "column",
-        borderRadius: 23.5,
-        gap: 10,
-        padding: 20,
-      }}
+      style={[
+        styles.bubble,
+        {
+          flexDirection: "column",
+        },
+      ]}
     >
       <View>
         <Text>👅 口味偏好</Text>
@@ -93,3 +93,12 @@ export function RecipePreferenceForm() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  bubble: {
+    backgroundColor: "#F3F8EE",
+    borderRadius: 23.5,
+    padding: 20,
+    gap: 10,
+  },
+});
