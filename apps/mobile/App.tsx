@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { createStaticNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { HomeScreen, HomeStack } from "./Home";
 import { FridgeStack } from "./Fridge";
 import { PortionSizeForm, RecipePreferenceForm } from "./components/forms";
@@ -86,7 +87,11 @@ const RootTab = createBottomTabNavigator({
 const Navigation = createStaticNavigation(RootTab);
 
 export default function App() {
-  return <Navigation />;
+  return (
+    <SafeAreaProvider>
+      <Navigation />
+    </SafeAreaProvider>
+  );
 }
 
 const styles = StyleSheet.create({

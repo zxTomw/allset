@@ -1,20 +1,62 @@
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { View, Text, Pressable, StyleSheet, Image } from "react-native";
 import { useEffect, useState } from "react";
 import { Selections } from "./selections";
+import { SendIcon } from "./icons/send";
 
-export function StartForm() {
-  return <View style={styles.bubble}></View>;
+interface StartingFormProps {
+  quickReplies: string[];
+  onQuickReply?: (value: string) => void;
+}
+
+export function StartingForm({
+  quickReplies,
+  onQuickReply,
+}: StartingFormProps) {
+  return (
+    <View style={{ margin: 5, gap: 10 }}>
+      <Text style={{ lineHeight: 24 }}>
+        今天想吃点啥? {"\n"}我来帮你配菜谱、查冰箱、顺便一键买齐食材～{" "}
+      </Text>
+      <View
+        style={{
+          flexDirection: "column",
+          gap: 10,
+          alignItems: "baseline",
+        }}
+      >
+        {quickReplies?.map((reply) => (
+          <Pressable
+            key={reply}
+            style={(pressed) => [
+              {
+                backgroundColor: pressed ? "#FEF6D8" : "white",
+                borderRadius: 23.5,
+                padding: 12,
+                width: 250,
+                flexDirection: "row",
+                justifyContent: "space-between",
+              },
+            ]}
+            onPress={() => {
+              onQuickReply?.(reply);
+            }}
+          >
+            <Text>{reply}</Text>
+            <SendIcon />
+          </Pressable>
+        ))}
+      </View>
+    </View>
+  );
 }
 
 export function PortionSizeForm() {
   return (
     <View
-      style={[
-        styles.bubble,
-        {
-          flexDirection: "row",
-        },
-      ]}
+      style={{
+        margin: 5,
+        flexDirection: "row",
+      }}
     >
       <View style={{ flex: 1 }}>
         <Text>👥 用餐人数</Text>
@@ -49,12 +91,10 @@ export function RecipePreferenceForm() {
   }, [recipeStyles]);
   return (
     <View
-      style={[
-        styles.bubble,
-        {
-          flexDirection: "column",
-        },
-      ]}
+      style={{
+        margin: 4,
+        flexDirection: "column",
+      }}
     >
       <View>
         <Text>👅 口味偏好</Text>

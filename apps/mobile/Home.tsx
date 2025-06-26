@@ -1,6 +1,7 @@
 import { View } from "react-native";
 import { ChatView } from "./components/chatView";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { Chat } from "./components/chat";
 
 export const HomeStack = createNativeStackNavigator({
   screens: {
@@ -23,7 +24,7 @@ export const HomeStack = createNativeStackNavigator({
 export function HomeScreen() {
   return (
     <View style={{ flex: 1 }}>
-      <ChatView />
+      <Chat />
     </View>
   );
 }
