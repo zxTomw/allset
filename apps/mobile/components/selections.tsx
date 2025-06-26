@@ -42,7 +42,7 @@ export function Selections({
     <View
       style={{
         flexDirection: "row",
-        columnGap: 20,
+        columnGap: 15,
         rowGap: 10,
         flexWrap: "wrap",
         marginVertical: 10,

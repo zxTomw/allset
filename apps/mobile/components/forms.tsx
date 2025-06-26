@@ -55,14 +55,36 @@ export function PortionSizeForm() {
     <View
       style={{
         margin: 5,
+        width: "100%",
         flexDirection: "row",
+        backgroundColor: "#F3F8EE",
       }}
     >
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, gap: 10 }}>
         <Text>👥 用餐人数</Text>
+        <Pressable
+          style={{
+            backgroundColor: "white",
+            borderRadius: 10,
+            padding: 12,
+            width: 100,
+          }}
+        >
+          <Text>2 人</Text>
+        </Pressable>
       </View>
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1, gap: 10 }}>
         <Text>⏰ 做菜时长</Text>
+        <Pressable
+          style={{
+            backgroundColor: "white",
+            borderRadius: 10,
+            padding: 12,
+            width: 100,
+          }}
+        >
+          <Text>30分钟</Text>
+        </Pressable>
       </View>
     </View>
   );
@@ -92,7 +114,7 @@ export function RecipePreferenceForm() {
   return (
     <View
       style={{
-        margin: 4,
+        margin: 5,
         flexDirection: "column",
       }}
     >
