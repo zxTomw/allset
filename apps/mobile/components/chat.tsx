@@ -6,6 +6,7 @@ import {
   TextInput,
   Platform,
   TouchableOpacity,
+  Pressable,
 } from "react-native";
 import { FlashList } from "@shopify/flash-list";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -99,7 +100,7 @@ export function Chat() {
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
-      keyboardVerticalOffset={Platform.OS === "ios" ? insets.top : 0}
+      keyboardVerticalOffset={Platform.OS === "ios" ? 90 : 0}
     >
       <FlashList
         data={sampleMessages.slice().reverse()}
@@ -111,14 +112,14 @@ export function Chat() {
         inverted
         style={{ paddingTop: insets.top }}
       />
-      <View style={[styles.inputContainer, { paddingBottom: insets.bottom }]}>
+      <View style={styles.inputContainer}>
         <View style={styles.inputRow}>
           <TextInput
             style={styles.textInput}
             placeholder="输入消息..."
             placeholderTextColor="#999"
           />
-          <TouchableOpacity
+          <Pressable
             style={styles.sendButton}
             onPress={() => {
               console.log("Send button pressed");
@@ -126,7 +127,7 @@ export function Chat() {
             }}
           >
             <SendBig />
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     </KeyboardAvoidingView>

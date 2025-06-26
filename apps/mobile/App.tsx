@@ -29,6 +29,10 @@ function ProfileScreen() {
 const RootTab = createBottomTabNavigator({
   initialRouteName: "Home",
   screenOptions: {
+    tabBarStyle: {
+      borderColor: "white",
+    },
+    tabBarActiveTintColor: "000",
     tabBarLabelPosition: "beside-icon",
     tabBarIconStyle: {
       display: "none",
