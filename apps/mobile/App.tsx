@@ -91,11 +91,7 @@ const RootTab = createBottomTabNavigator({
 const Navigation = createStaticNavigation(RootTab);
 
 export default function App() {
-  return (
-    <SafeAreaProvider>
-      <Navigation />
-    </SafeAreaProvider>
-  );
+  return <Navigation />;
 }
 
 const styles = StyleSheet.create({
