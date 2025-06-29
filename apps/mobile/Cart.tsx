@@ -332,7 +332,7 @@ const styles = StyleSheet.create({
   ingredientImage: {
     width: 89,
     height: 64,
-    borderRadius: 12,
+    borderRadius: 5,
     marginRight: 16,
     backgroundColor: "#f8f9fa",
   },
@@ -368,26 +368,24 @@ const styles = StyleSheet.create({
 
   // Purchase Button Styles
   purchaseContainer: {
-    paddingBottom: 40,
-    paddingTop: 24,
+    paddingBottom: 12,
     paddingHorizontal: 4,
   },
   purchaseButton: {
+    position: "static",
     backgroundColor: "#ffd54f",
     borderRadius: 28,
-    paddingVertical: 18,
-    paddingHorizontal: 32,
+    padding: 12,
     flexDirection: "row",
     width: "auto",
     alignSelf: "flex-end",
     shadowColor: "#ffd54f",
     borderWidth: 1,
     borderColor: "#ffcc02",
+    justifyContent: "center",
+    alignItems: "center",
   },
   purchaseButtonText: {
-    fontSize: 18,
-    fontWeight: "700",
-    color: "#333",
     marginRight: 12,
     letterSpacing: 0.5,
   },
