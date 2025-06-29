@@ -18,5 +18,8 @@
     "lint": "turbo run lint",
     "test": "turbo run test"
   },
-  "packageManager": "npm@11.4.2"
+  "packageManager": "npm@11.4.2",
+  "dependencies": {
+    "react-native-keyboard-controller": "^1.17.5"
+  }
 }
