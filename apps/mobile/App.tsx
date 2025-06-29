@@ -1,25 +1,13 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { createStaticNavigation } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { KeyboardProvider } from "react-native-keyboard-controller";
-import { HomeScreen, HomeStack } from "./Home";
+import { HomeScreen } from "./Home";
 import { FridgeStack } from "./Fridge";
 import { PortionSizeForm, RecipePreferenceForm } from "./components/forms";
 import { RecipeStack } from "./Recipes";
-import { CartScreen } from "./Cart";
+import { CartStack } from "./Cart";
 import { CartIcon } from "./components/icons/cart";
-
-function FavoritesScreen() {
-  return (
-    <View style={styles.container}>
-      <Text>Favorites Screen</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
 function ProfileScreen() {
   return (
@@ -67,8 +55,9 @@ const RootTab = createBottomTabNavigator({
       },
     },
     Cart: {
-      screen: CartScreen,
+      screen: CartStack,
       options: {
+        headerShown: false,
         tabBarIcon: CartIcon,
         tabBarLabelStyle: {
           display: "none",
