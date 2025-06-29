@@ -11,6 +11,7 @@ import {
   SafeAreaView,
   FlatList,
 } from "react-native";
+import { Sidebar } from "./components/sidebar";
 
 // Sample recipe data
 interface Recipe {
@@ -121,27 +122,11 @@ function RecipesHomeScreen() {
 
       <View style={styles.contentContainer}>
         {/* Left Sidebar Categories */}
-        <View style={styles.sidebar}>
-          {categories.map((category) => (
-            <Pressable
-              key={category}
-              style={[
-                styles.categoryButton,
-                selectedCategory === category && styles.activeCategoryButton,
-              ]}
-              onPress={() => setSelectedCategory(category)}
-            >
-              <Text
-                style={[
-                  styles.categoryText,
-                  selectedCategory === category && styles.activeCategoryText,
-                ]}
-              >
-                {category}
-              </Text>
-            </Pressable>
-          ))}
-        </View>
+        <Sidebar
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onSelectedChange={setSelectedCategory}
+        />
 
         {/* Recipe Grid */}
         <View style={styles.recipeGrid}>
@@ -223,28 +208,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
   },
-  sidebar: {
-    width: 100,
-    backgroundColor: "#F3F8EE",
-    paddingVertical: 10,
-  },
-  categoryButton: {
-    paddingVertical: 15,
-    paddingHorizontal: 10,
-    alignItems: "center",
-  },
-  activeCategoryButton: {
-    backgroundColor: "#FFFFFF",
-  },
-  categoryText: {
-    fontSize: 14,
-    color: "#666",
-    textAlign: "center",
-  },
-  activeCategoryText: {
-    color: "#000",
-    fontWeight: "600",
-  },
+
   recipeGrid: {
     flex: 1,
     backgroundColor: "#FFFFFF",
